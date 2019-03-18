@@ -12,13 +12,13 @@ import org.springframework.web.client.RestTemplate;
 @Configuration
 public class RestConfiguration {
 
-    @Value("${trainer.service.username}")
+    /*@Value("${trainer.service.username}")
     private String username;
 
     @Value("${trainer.service.password}")
-    private String password;
+    private String password;*/
 
-    @Bean
+    /*@Bean
     RestTemplate trainerApiRestTemplate(){
         BasicAuthenticationInterceptor basicAuth = new BasicAuthenticationInterceptor(this.username, this.password);
         //problem here !!!!!!!!!!!!!!
@@ -26,7 +26,7 @@ public class RestConfiguration {
 
 
 
-    }
+    }*/
 
     @Bean
     RestTemplate restTemplate(){
