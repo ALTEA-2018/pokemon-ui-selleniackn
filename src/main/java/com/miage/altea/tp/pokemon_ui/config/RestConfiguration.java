@@ -16,13 +16,15 @@ public class RestConfiguration {
     private String username;
 
     @Value("${trainer.service.password}")
-    private String password;*/
+    private String password;
 
-    /*@Bean
+    @Bean
     RestTemplate trainerApiRestTemplate(){
-        BasicAuthenticationInterceptor basicAuth = new BasicAuthenticationInterceptor(this.username, this.password);
-        //problem here !!!!!!!!!!!!!!
-        return new RestTemplate();
+
+        return new RestTemplate.getInterceptors().add(new BasicAuthorizationInterceptor(username, password));
+
+        TP SECURITÉ PROBLEME HERE !!
+
 
 
 
