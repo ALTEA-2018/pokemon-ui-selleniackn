@@ -5,6 +5,7 @@ import com.miage.altea.tp.pokemon_ui.pokemonTypes.service.PokemonTypeServiceImpl
 
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.client.RestTemplate;
 import static org.mockito.Mockito.mock;
 import org.springframework.stereotype.Service;
@@ -48,6 +49,14 @@ public class PokemonTypeServiceImplTest {
             var setRestTemplateMethod = PokemonTypeServiceImpl.class.getDeclaredMethod("setRestTemplate", RestTemplate.class);
             assertNotNull(setRestTemplateMethod.getAnnotation(Autowired.class));
         }
+
+    @Test
+    void setPokemonServiceUrl_shouldBeAnnotatedWithValue() throws NoSuchMethodException {
+        var setter = PokemonTypeServiceImpl.class.getDeclaredMethod("setPokemonTypeServiceUrl", String.class);
+        var valueAnnotation = setter.getAnnotation(Value.class);
+        assertNotNull(valueAnnotation);
+        assertEquals("${pokemonType.service.url}", valueAnnotation.value());
+    }
 
 
 }
